@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 dockerfile {
-                    additionalBuildArgs "-t pharv/php-nginx:${env.BRANCH_NAME}"
+                    additionalBuildArgs "-t westonmax/php-nginx:${env.BRANCH_NAME}"
                 }
             }
             steps {
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Publish - Docker Hub') {
             steps {
-                sh "docker push pharv/php-nginx:${env.BRANCH_NAME}"
+                sh "docker push westonmax/php-nginx:${env.BRANCH_NAME}"
             }
         }
     }
